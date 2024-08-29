@@ -1,0 +1,9 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        anagrams = {}
+        for s in strs:
+            sorted_str = tuple(sorted(s))
+            if sorted_str not in anagrams:
+                anagrams[sorted_str] = []
+            anagrams[sorted_str].append(s)
+        return list(anagrams.values())
