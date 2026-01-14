@@ -13,12 +13,14 @@ class Solution:
                 matrix[row][right] = start
                 start+=1
             right-=1
-            for col in range(right,left-1,-1):
-                matrix[bottom][col] = start
-                start+=1
-            bottom-=1
-            for row in range(bottom,top-1,-1):
-                matrix[row][left] = start
-                start+=1
-            left+=1
+            if top <= bottom:
+                for col in range(right,left-1,-1):
+                    matrix[bottom][col] = start
+                    start+=1
+                bottom-=1
+            if left <= right:
+                for row in range(bottom,top-1,-1):
+                    matrix[row][left] = start
+                    start+=1
+                left+=1
         return matrix
